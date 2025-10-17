@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex - Scroll Infinito y Filtros</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">📖 Pokédex Interactiva</h1>
+                <p class="subtitle">Explora el mundo Pokémon con scroll infinito</p>
+            </div>
+        </header>
+
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="filter-container">
+                <label for="typeFilter" class="filter-label">🔍 Filtrar por tipo:</label>
+                <select id="typeFilter" class="filter-select">
+                    <option value="all">Todos los tipos</option>
+                </select>
+                <button id="resetBtn" class="btn-reset">Resetear</button>
+            </div>
+            <div class="stats-info">
+                <span id="pokemonCount" class="stats-text">Mostrando 0 Pokémon</span>
+            </div>
+        </section>
+
+        <!-- Pokemon Grid -->
+        <section class="pokemon-grid" id="pokemonGrid">
+            <!-- Las cards se generarán dinámicamente -->
+        </section>
+
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Cargando Pokémon...</p>
+        </div>
+
+        <!-- End Message -->
+        <div id="endMessage" class="end-message hidden">
+            <p>¡Has llegado al final de la Pokédex!</p>
+        </div>
+
+        <!-- Modal -->
+        <div id="pokemonModal" class="modal hidden">
+            <div class="modal-overlay" id="modalOverlay"></div>
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">&times;</button>
+                
+                <div class="modal-body">
+                    <!-- Flip Card Container -->
+                    <div class="card-wrapper">
+                        <div class="pokemon-card" id="modalPokemonCard">
+                            <!-- Cara frontal -->
+                            <div class="card-face card-front">
+                                <div class="pokemon-number" id="modalPokemonNumber">#001</div>
+                                <div class="pokemon-image-container">
+                                    <img id="modalPokemonImage" src="" alt="Pokémon">
+                                </div>
+                                <h2 class="pokemon-name" id="modalPokemonName">Nombre</h2>
+                                <div class="pokemon-types" id="modalPokemonTypes"></div>
+                                <div class="pokemon-info">
+                                    <div class="info-item">
+                                        <span class="info-label">Peso:</span>
+                                        <span class="info-value" id="modalPokemonWeight">-</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Altura:</span>
+                                        <span class="info-value" id="modalPokemonHeight">-</span>
+                                    </div>
+                                </div>
+                                <div class="pokemon-abilities">
+                                    <h4>Habilidades:</h4>
+                                    <div id="modalPokemonAbilities"></div>
+                                </div>
+                                <p class="flip-hint">👆 Haz clic para ver estadísticas</p>
+                            </div>
+
+                            <!-- Cara trasera -->
+                            <div class="card-face card-back">
+                                <h3 class="stats-title">📊 Estadísticas Base</h3>
+                                <div class="stats-container" id="modalStatsContainer"></div>
+                                <p class="flip-hint">👆 Haz clic para volver</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by <a href="https://pokeapi.co/" target="_blank">PokéAPI</a></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
+
+
